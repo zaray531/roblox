@@ -1,0 +1,207 @@
+/* ========== RESET ========== */
+/* Reinicia márgenes/padding y hace que el box-sizing incluya borde/padding */
+* {
+    margin: 0 none;
+    padding: 0 none;
+    box-sizing: border-box;
+}
+
+/* Fuente por defecto de la página */
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ========== HEADER CON OVERLAY ========== */
+/* Cabecera con imagen de fondo y superposición oscura mediante gradiente */
+header {
+    background: linear-gradient(to bottom, rgba(96, 16, 177, 0.5), rgba(0,0,0,.85)),
+    url("../img/roblox.avif") center/cover fixed; /* imagen centrada, cover y fija */
+    min-height: 100vh; /* ocupa al menos la altura de la ventana  */
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+}
+/* ========== NAV ========== */
+/* Barra de navegación semitransparente y sticky (queda fija al hacer scroll) */
+nav {
+    background: rgba(0,0,0,.5);
+    padding: 1.5rem 3rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* por encima de otros elementos */
+    box-shadow: 0 4px 20px rgba(0,216,255,.2);
+}
+
+/* Contenedor de enlaces: centrado, layout horizontal y espacio entre items */
+nav ul {
+    max-width: 1400px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    list-style: none;
+}
+
+/* Primer elemento (logo/título) se separa a la izquierda */
+nav ul li:first-child {
+    margin-right: auto;
+}
+
+/* Estilo para el título/logo en el nav */
+nav ul li:first-child h3 {
+    color: #00d8ff;
+    font-size: 2.2rem;
+    font-weight: 900;
+}
+/* Enlaces del nav: blancos, sin subrayado y con peso */
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.15rem;
+    position: relative; /* necesario para el pseudo-elemento ::before */
+}
+
+/* Línea animada bajo el link usando transform scaleX */
+nav a::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    background: #00d8ff;
+    transform: scaleX(0);
+    bottom: -10px;
+    transition: .3s;
+}
+
+nav a:hover::before {
+    transform: scaleX(1);
+}
+/* ========== HERO ========== */
+/* Área principal de presentación centrada */
+.hero {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+}
+
+/* Título grande con trazo y efecto de resplandor */
+.hero h1 {
+    font-size: 120px;
+    font-weight: 900;
+    color: transparent; /* relleno transparente para mostrar solo el trazo */
+    -webkit-text-stroke: 3px #fff;
+    text-shadow: 6px -6px 1px #00d8ff;
+}
+
+/* Párrafo del hero: tamaño responsivo mediante clamp y sombra */
+.hero p {
+    font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+    max-width: 800px;
+    text-shadow: 2px 2px 8px rgba(0,0,0,.9);
+}
+
+/* ========== MAIN Y SECCIONES ========== */
+/* Contenedor principal centrado y con ancho relativo */
+main {
+    width: 90%;
+    margin: auto;
+  }
+  
+  /* Estilo base para secciones: tarjeta con sombra y bordes redondeados */
+  section {
+    max-width: 90%;
+    margin: 40px auto;
+    padding: 20px 40px;
+    border-radius: 20px;
+    box-shadow: 0 2px 9px 6px rgba(0,0,0,.16);
+  }
+  
+  /* Títulos de sección grandes y coloreados */
+  section h2 {
+    font-size: 3.5rem;
+    text-align: center;
+    color: #00d8ff;
+    -webkit-text-stroke: 1px #0736317c;
+  }
+  /* ========== TARJETAS ========== */
+/* Contenedor flexible para las tarjetas */
+.tarjetas {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 40px;
+  }
+  
+  /* Estilo de cada tarjeta:
+   * - flex: permite que se adapten (crecer/encoger)
+   * - max-width: limita su tamaño máximo
+   * - fondo con imagen y gradiente oscuro encima
+   */
+  .card {
+    flex: 1 1 22%; /* se adapta automáticamente según espacio */
+    max-width: 25%; /* evita que se salgan del contenedor */
+    height: 320px;
+    padding: 20px;
+    border-radius: 10px;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* contenido al final de la tarjeta */
+    background: linear-gradient(to top, rgba(0,0,0,.9), rgba(0,0,0,.4)),
+                url('../img/card.jpg') center/cover no-repeat;
+    cursor: pointer;
+    transition: .4s;
+    box-shadow: 0 10px 30px rgba(0,0,0,.5);
+  }
+  /* Efecto hover: levanta y agranda ligeramente la tarjeta */
+.card:hover {
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 20px 40px rgba(0,216,255,.3);
+  }
+
+  /* Titulo y párrafo dentro de la tarjeta */
+.card h3 {
+    font-size: 1.8rem;
+    margin-bottom: .5rem;
+    color: #00d8ff;
+    text-shadow: 0 0 15px rgba(0,216,255,.6);
+  }
+  
+  .card p {
+    font-size: 1.1rem;
+  }
+  
+  /* ========== QUÉ ES ROBLOX? ========== */
+  /* Sección con imagen de fondo y caja semitransparente para el contenido */
+  .que-es {
+    background-image: url('../img/seo-roblox.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+  }
+  
+  .que-es div {
+    width: 60%;
+    padding: 40px;
+    background-color: rgba(255,255,255,0.4); /* fondo blanco translúcido */
+    border-radius: 10px;
+  }
+  /* ========== FOOTER ========== */
+/* Pie de página con degradado oscuro y borde superior azul */
+footer {
+    background: linear-gradient(to top, #000, #001122);
+    padding: 3rem 1rem;
+    text-align: center;
+    border-top: 3px solid #00d8ff;
+    color: #fff;
+  }
+  
+  footer p {
+    opacity: .8;
+  }
