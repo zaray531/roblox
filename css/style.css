@@ -1,8 +1,8 @@
 /* ========== RESET ========== */
 /* Reinicia márgenes/padding y hace que el box-sizing incluya borde/padding */
 * {
-    margin: 0 none;
-    padding: 0 none;
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
